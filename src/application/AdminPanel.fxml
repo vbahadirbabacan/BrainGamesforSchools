@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdminPanelController">
+   <children>
+      <BorderPane prefHeight="768.0" prefWidth="1366.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuBar fx:id="menuBar" style="-fx-background-color: #11bd84;">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem fx:id="aboutButton" mnemonicParsing="false" onAction="#aboutButtonClick" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <HBox fx:id="topHbox" prefHeight="200.0" prefWidth="1366.0" style="-fx-background-color: white;">
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="455.3">
+                           <children>
+                              <Button fx:id="scoreAddButton" layoutX="199.0" layoutY="28.0" mnemonicParsing="false" onAction="#scoreAddButtonClick" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-width: 2.5; -fx-border-radius: 25; -f: ;" text="Ekle" />
+                              <Button fx:id="scoreDeleteButton" layoutX="199.0" layoutY="58.0" mnemonicParsing="false" onAction="#scoreDeleteButtonClick" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 25; -fx-border-width: 2.5;" text="Sil" />
+                              <Button fx:id="scoreUpdateButton" layoutX="199.0" layoutY="88.0" mnemonicParsing="false" onAction="#scoreUpdateButtonClick" prefWidth="80.0" style="-fx-background-color: white; -fx-border-width: 2.5; -fx-border-color: #11bd84; -fx-border-radius: 25;" text="Güncelle" />
+                              <Button fx:id="scoreSearchButton" layoutX="199.0" layoutY="118.0" mnemonicParsing="false" onAction="#scoreSearchButtonClick" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-width: 2.5; -fx-border-radius: 25;" text="Ara" />
+                              <TextField fx:id="scoreIdField" layoutX="14.0" layoutY="30.0" promptText="Öğrenci id" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <TextField fx:id="studentIdField" layoutX="14.0" layoutY="60.0" promptText="Oyun id" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <TextField fx:id="gameIdField" layoutX="14.0" layoutY="90.0" prefWidth="171.0" promptText="Puan" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <Button fx:id="clearScoresButton" layoutX="367.0" layoutY="33.0" mnemonicParsing="false" onAction="#clearScoresButtonClick" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-border-color: #11bd84; -fx-border-width: 2.5;" text="Verileri Sıfırla" wrapText="true">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="scoreSearchOnStudentPanel" layoutX="287.0" layoutY="33.0" mnemonicParsing="false" onAction="#scoreSearchOnStudentPanelClick" prefHeight="55.0" prefWidth="70.0" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-width: 2.5; -fx-border-radius: 10;" text="Öğrenci panelde ara" wrapText="true">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                              <DatePicker fx:id="datePick" layoutX="14.0" layoutY="120.0" onAction="#datePickClick" prefHeight="24.0" prefWidth="170.0" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <RadioButton fx:id="radioStd" layoutX="289.0" layoutY="108.0" mnemonicParsing="false" text="Öğr. id">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="radios" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="radioGame" layoutX="370.0" layoutY="108.0" mnemonicParsing="false" text="Oyun id" toggleGroup="$radios" />
+                              <RadioButton fx:id="radioPoint" layoutX="288.0" layoutY="133.0" mnemonicParsing="false" text="Puan" toggleGroup="$radios" />
+                              <RadioButton fx:id="radioDate" layoutX="369.0" layoutY="133.0" mnemonicParsing="false" text="Tarih" toggleGroup="$radios" />
+                              <Label layoutX="289.0" layoutY="94.0" text="Arama kriterleri">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                        <AnchorPane prefHeight="200.0" prefWidth="455.3">
+                           <children>
+                              <Button fx:id="stdAddButton" layoutX="199.0" layoutY="28.0" mnemonicParsing="false" onAction="#stdAddButtonClick" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-width: 2.5; -fx-border-radius: 20;" text="Ekle" />
+                              <Button fx:id="stdDeleteButton" layoutX="199.0" layoutY="58.0" mnemonicParsing="false" onAction="#stdDeleteButtonClick" prefWidth="80.0" style="-fx-background-color: white; -fx-border-width: 2.5; -fx-border-radius: 25; -fx-border-color: #11bd84;" text="Sil" />
+                              <Button fx:id="stdUpdateButton" layoutX="199.0" layoutY="88.0" mnemonicParsing="false" onAction="#stdUpdateButtonClick" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-width: 2.5; -fx-border-radius: 25;" text="Güncelle" />
+                              <Button fx:id="stdSearchButton" layoutX="199.0" layoutY="118.0" mnemonicParsing="false" onAction="#stdSearchButtonClick" prefWidth="80.0" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-width: 2.5; -fx-border-radius: 25;" text="Ara" />
+                              <TextField fx:id="stdNameField" layoutX="14.0" layoutY="30.0" promptText="isim" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <TextField fx:id="stfLastNameField" layoutX="14.0" layoutY="60.0" promptText="soyisim" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <TextField fx:id="stdNumField" layoutX="14.0" layoutY="120.0" promptText="numara" style="-fx-background-color: white; -fx-border-radius: 5; -fx-border-color: #11bd84;" />
+                              <ComboBox fx:id="classNumCombo" layoutX="14.0" layoutY="90.0" prefHeight="24.0" prefWidth="75.0" promptText="Sayı" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <ComboBox fx:id="classLetterCombo" layoutX="109.0" layoutY="90.0" prefHeight="24.0" prefWidth="76.0" promptText="Harf" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <CheckBox fx:id="bannedCheck" layoutX="293.0" layoutY="33.0" mnemonicParsing="false" text="Engellendi" />
+                              <RadioButton fx:id="radioStdName" layoutX="287.0" layoutY="97.0" mnemonicParsing="false" text="İsim">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="radios2" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="radioStdLastName" layoutX="368.0" layoutY="97.0" mnemonicParsing="false" text="Soyisim" toggleGroup="$radios2" />
+                              <RadioButton fx:id="radioStdClass" layoutX="287.0" layoutY="127.0" mnemonicParsing="false" text="Sınıf" toggleGroup="$radios2" />
+                              <RadioButton fx:id="radioStdNum" layoutX="368.0" layoutY="127.0" mnemonicParsing="false" text="Numara" toggleGroup="$radios2" />
+                              <Label layoutX="287.0" layoutY="83.0" text="Arama kriterleri">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="95.0" layoutY="94.0" text="/" />
+                           </children>
+                        </AnchorPane>
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                        <AnchorPane fx:id="teacherControlsAnchor" prefHeight="200.0" prefWidth="455.3">
+                           <children>
+                              <Button fx:id="teacherAddButton" layoutX="194.0" layoutY="14.0" mnemonicParsing="false" onAction="#teacherAddButtonClick" prefWidth="80.0" style="-fx-background-color: white; -fx-border-radius: 25; -fx-border-color: #11bd84; -fx-border-width: 2.5;" text="Ekle" />
+                              <Button fx:id="teacherDeleteButton" layoutX="194.0" layoutY="44.0" mnemonicParsing="false" onAction="#teacherDeleteButtonClick" prefWidth="80.0" style="-fx-background-color: white; -fx-border-radius: 25; -fx-border-color: #11bd84; -fx-border-width: 2.5;" text="Sil" />
+                              <Button fx:id="teacherUpdateButton" layoutX="194.0" layoutY="74.0" mnemonicParsing="false" onAction="#teacherUpdateButtonClick" prefWidth="80.0" style="-fx-background-color: white; -fx-border-radius: 25; -fx-border-color: #11bd84; -fx-border-width: 2.5;" text="Güncelle" />
+                              <Button fx:id="teacherSearchButton" layoutX="194.0" layoutY="104.0" mnemonicParsing="false" onAction="#teacherSearchButtonClick" prefWidth="80.0" style="-fx-background-color: white; -fx-border-radius: 25; -fx-border-color: #11bd84; -fx-border-width: 2.5;" text="Ara" />
+                              <TextField fx:id="teacherNameField" layoutX="9.0" layoutY="14.0" promptText="isim" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <TextField fx:id="teacherLastNameField" layoutX="9.0" layoutY="44.0" promptText="soyisim" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <TextField fx:id="emailField" layoutX="9.0" layoutY="74.0" promptText="email" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <CheckBox fx:id="isAdminCheck" layoutX="352.0" layoutY="17.0" mnemonicParsing="false" onAction="#isAdminCheckClick" text="Yetkili" />
+                              <Button fx:id="getStudentsOfTeacherButton" layoutX="284.0" layoutY="14.0" mnemonicParsing="false" onAction="#getStudentsOfTeacherButtonClick" prefHeight="55.0" prefWidth="55.0" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 10; -fx-border-width: 2.5;" text="Öğr. öğrenci listesi" wrapText="true">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                              <ComboBox fx:id="teacherClassNumCom" layoutX="9.0" layoutY="104.0" onAction="#teacherClassNumComClick" prefHeight="24.0" prefWidth="76.0" promptText="Sayı" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <ComboBox fx:id="teacherClassLetterCom" layoutX="104.0" layoutY="104.0" onAction="#teacherClassLetterComClick" prefHeight="24.0" prefWidth="76.0" promptText="Harf" style="-fx-background-color: white; -fx-border-color: #11bd84; -fx-border-radius: 5;" />
+                              <RadioButton fx:id="radioTName" layoutX="288.0" layoutY="96.0" mnemonicParsing="false" text="İsim">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="radios3" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="radioTLastName" layoutX="369.0" layoutY="96.0" mnemonicParsing="false" text="Soyisim" toggleGroup="$radios3" />
+                              <RadioButton fx:id="radioTeamil" layoutX="288.0" layoutY="126.0" mnemonicParsing="false" text="Email" toggleGroup="$radios3" />
+                              <RadioButton fx:id="radioTClass" layoutX="369.0" layoutY="126.0" mnemonicParsing="false" text="Sınıf" toggleGroup="$radios3" />
+                              <Label layoutX="288.0" layoutY="82.0" text="Arama kriterleri">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="passField" layoutX="9.0" layoutY="132.0" promptText="şifre" style="-fx-background-color: white; -fx-border-radius: 5; -fx-border-color: #11bd84;" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </top>
+         <bottom>
+            <HBox fx:id="bottomHbox" alignment="CENTER" prefHeight="25.0" prefWidth="1366.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="455.0" style="-fx-background-color: #11bd84;">
+                     <children>
+                        <Label fx:id="usernameLabel" layoutX="9.0" layoutY="5.0" text="USERNAME" />
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="centerBottomAnchor" prefHeight="200.0" prefWidth="455.0" style="-fx-background-color: #11bd84;" />
+                  <AnchorPane prefHeight="200.0" prefWidth="455.0" style="-fx-background-color: #11bd84;" />
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+            <HBox fx:id="hBoxMid" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="scoresTable" onMouseClicked="#onScoresTabeClicked" prefWidth="455.3">
+                    <columns>
+                      <TableColumn fx:id="scoreIdCol" prefWidth="75.0" text="id" />
+                      <TableColumn fx:id="studentIdCol" prefWidth="75.0" text="Öğrenci id" />
+                        <TableColumn fx:id="gameNameCol" prefWidth="75.0" text="Oyun İsmi" />
+                        <TableColumn fx:id="scoreCol" prefWidth="75.0" text="Puan" />
+                        <TableColumn fx:id="scoreDateCol" prefWidth="75.0" text="Tarih" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <TableView fx:id="studentsTable" onMouseClicked="#onStudentsTableClicked" prefWidth="455.3">
+                     <columns>
+                        <TableColumn fx:id="sIdCol" prefWidth="75.0" text="id" />
+                        <TableColumn fx:id="sNameCol" prefWidth="75.0" text="İsim" />
+                        <TableColumn fx:id="sLastNameCol" prefWidth="75.0" text="Soyisim" />
+                        <TableColumn fx:id="sClassCol" prefWidth="75.0" text="Sınıf" />
+                        <TableColumn fx:id="sNumberCol" prefWidth="75.0" text="Numara" />
+                        <TableColumn fx:id="isBannedCol" prefWidth="75.0" text="Engellenme" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <TableView fx:id="teachersTable" onMouseClicked="#onTeachersTabeClicked" prefWidth="455.3">
+                     <columns>
+                        <TableColumn fx:id="tIdCol" prefWidth="75.0" text="id" />
+                        <TableColumn fx:id="tNameCol" prefWidth="75.0" text="İsim" />
+                        <TableColumn fx:id="tLastNameCol" prefWidth="75.0" text="Soyisim" />
+                        <TableColumn fx:id="temailCol" prefWidth="75.0" text="email" />
+                        <TableColumn fx:id="tPassCol" prefWidth="75.0" text="SHA256 pwd" />
+                        <TableColumn fx:id="tClassCol" prefWidth="75.0" text="Sorunmu old. Sınıf" />
+                        <TableColumn fx:id="tIsAdminCol" prefWidth="75.0" text="Yönetici" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

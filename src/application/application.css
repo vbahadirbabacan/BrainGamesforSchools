@@ -1,0 +1,7 @@
+.gameMenuAnchor {
+	-fx-background-color: #e05a2c;
+    -fx-background-image:url('GameMenuBG.png');
+    -fx-background-size: 800 425;
+    -fx-background-position: center center;
+    -fx-background-repeat: repeat;
+}
